@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Deniro Oscar Men’s Loafers",
+    "sub": "Loafer",
+    "price": 2400,
+    "category": "Formal",
+    "gender": "mens",
+     "images": [
+    "https://i.postimg.cc/zfq9Wgs0/formal-1-1.webp",
+    "https://i.postimg.cc/VNz3MCxg/formal-1-2.webp",
+    "https://i.postimg.cc/hGKHxdkM/formal-1-3.webp",
+    "https://i.postimg.cc/KYmdLM65/formal-1-4.webp"
+  ],
+    "sizes": ["40", "41", "42", "43", "44", "45"],
+    "stock": "in",
+    "isNew": true
+  },
+  {
+    "id": 2,
+    "name": "Stryde Apex",
+    "sub": "Running Performance",
+    "price": 11200,
+    "category": "Formal",
+    "gender": "mens",
+    "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
+    "sizes": ["39", "40", "41", "42", "43", "44"],
+    "stock": "in",
+    "isNew": false
+  },
+  {
+    "id": 3,
+    "name": "Stryde Edge",
+    "sub": "Street Lifestyle",
+    "price": 9800,
+    "category": "Lifestyle",
+    "gender": "mens",
+
+    "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
+    "sizes": ["40", "41", "43", "44"],
+    "stock": "low",
+    "isNew": false
+  },
+  {
+    "id": 4,
+    "name": "Stryde Volt",
+    "sub": "Court Sneaker",
+    "price": 7900,
+    "category": "Comfort",
+    "gender": "mens",
+    "images": [
+    "https://i.postimg.cc/WzNMBhQv/Untitled.png",
+    "https://i.postimg.cc/WzNMBhQv/Untitled.png",
+    "https://i.postimg.cc/WzNMBhQv/Untitled.png",
+    "https://i.postimg.cc/WzNMBhQv/Untitled.png"
+  ],
+    "sizes": ["38", "39", "40", "41", "42"],
+    "stock": "in",
+    "isNew": true
+  },
+  {
+    "id": 5,
+    "name": "Stryde Summit",
+    "sub": "Trail Runner",
+    "price": 13500,
+    "category": "Running",
+    "gender": "mens",
+    "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
+    "sizes": ["41", "42", "43", "44", "45"],
+    "stock": "in",
+    "isNew": false
+  },
+  {
+    "id": 6,
+    "name": "Stryde Flare",
+    "sub": "Women's Low",
+    "price": 8200,
+    "category": "Lifestyle",
+    "gender": "mens",
+
+    "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
+    "sizes": ["36", "37", "38", "39", "40"],
+    "stock": "in",
+    "isNew": true
+  },
+  {
+    "id": 7,
+    "name": "Stryde Base",
+    "sub": "Classic White",
+    "price": 6500,
+    "category": "Trainers",
+    "gender": "mens",
+
+     "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
+    "sizes": ["39", "40", "41", "42", "43"],
+    "stock": "out",
+    "isNew": false
+  },
+  {
+    "id": 8,
+    "name": "Stryde Noir",
+    "sub": "All-Black Court",
+    "price": 10500,
+    "category": "Court",
+    "gender": "womens",
+
+     "images": [
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png",
+    "https://i.postimg.cc/4427fLcb/Untitled-(1).png"
+  ],
+    "sizes": ["40", "41", "42", "43", "44", "45"],
+    "stock": "in",
+    "isNew": false
+  }
+]
