@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./assets/navbar/navbar";
 import Hero from "./assets/hero/hero";
-import Arrivals from "./assets/arrivals/arrivals";
+import Arrivals from "./assets/training/training";
 import Flash from "./assets/flash/flash";
 import Categories from "./assets/categories/categories";
 import Action from "./assets/cta/Action";
