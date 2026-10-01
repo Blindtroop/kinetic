@@ -193,7 +193,7 @@ function Training() {
 
         <div className="relative md:col-span-4 md:col-start-9 md:-mt-20">
           <Drift range={[50, -50]}>
-  <div className="relative aspect-[4/5] overflow-hidden ">
+  <div className="relative aspect-[3/5] overflow-hidden ">
 
     <img
       src="https://i.postimg.cc/tR59wJKv/edgar-chaparro-s-Hfo3WOg-GTU-unsplash.jpg"
