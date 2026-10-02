@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useInView } from "motion/react";
 const D = { fontFamily: "'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif" };
 const M = { fontFamily: "'JetBrains Mono', ui-monospace, monospace" };
 const B = { fontFamily: "'Inter Tight', system-ui, sans-serif" };
-const LIME = "#B7FF00";
+// const LIME = "#B7FF00";
 const BONE = "#E8E6DE";
 const INK = "#0A0A0A";
 const EASE = [0.76, 0, 0.24, 1]; // hard in, hard out. mechanical.
@@ -93,55 +93,55 @@ function SectionHead({ n, label, dark = false }) {
   );
 }
 
-function Fig({ n, caption, children, className = "" }) {
-  return (
-    <figure className={className}>
-      <div className="relative aspect-[4/5] overflow-hidden bg-[#181818]">
-        <div className="absolute inset-0 scale-[1.18]">{children}</div>
+// function Fig({ n, caption, children, className = "" }) {
+//   return (
+//     <figure className={className}>
+//       <div className="relative aspect-[4/5] overflow-hidden bg-[#181818]">
+//         <div className="absolute inset-0 scale-[1.18]">{children}</div>
         
-      </div>
-      <figcaption style={M} className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.2em] text-[#777B78]">
-        <span>{caption}</span>
-        <span>B/W</span>
-      </figcaption>
-    </figure>
-  );
-}
+//       </div>
+//       <figcaption style={M} className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.2em] text-[#777B78]">
+//         <span>{caption}</span>
+//         <span>B/W</span>
+//       </figcaption>
+//     </figure>
+//   );
+// }
 
 /* ───────────── artwork (monochrome, drawn in SVG so the page ships with no stock photos) ─────────────
    Swap any of these for a real high-contrast B/W photo: <img className="h-full w-full object-cover grayscale contrast-125" /> */
 
-function ChalkArt() {
-  return (
-    <svg viewBox="0 0 600 750" preserveAspectRatio="xMidYMid slice" className="h-full w-full" aria-hidden="true">
-      <defs>
-        <filter id="ch-cloud" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.011 0.02" numOctaves="5" seed="11" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0.91  0 0 0 0 0.90  0 0 0 0 0.87  2.8 0 0 0 -1.05" />
-        </filter>
-        <filter id="ch-dust" x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.02 0.035" numOctaves="4" seed="3" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0.95  0 0 0 0 0.95  0 0 0 0 0.92  3.4 0 0 0 -1.7" />
-        </filter>
-        <linearGradient id="ch-bar" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#FFFFFF" />
-          <stop offset="0.42" stopColor="#8D8D8D" />
-          <stop offset="0.5" stopColor="#0C0C0C" />
-          <stop offset="1" stopColor="#4A4A4A" />
-        </linearGradient>
-        <pattern id="ch-knurl" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <line x1="0" y1="0" x2="0" y2="6" stroke="#0A0A0A" strokeWidth="1.4" opacity="0.55" />
-        </pattern>
-      </defs>
-      <rect width="600" height="750" fill="#101010" />
-      <rect width="600" height="750" filter="url(#ch-cloud)" />
-      <rect x="-40" y="448" width="680" height="22" fill="url(#ch-bar)" />
-      <rect x="-40" y="448" width="680" height="22" fill="url(#ch-knurl)" />
-      <rect x="-40" y="440" width="60" height="38" fill="#0A0A0A" stroke="#E8E6DE" strokeWidth="1.5" />
-      <rect width="600" height="750" filter="url(#ch-dust)" opacity="0.8" style={{ mixBlendMode: "screen" }} />
-    </svg>
-  );
-}
+// function ChalkArt() {
+//   return (
+//     <svg viewBox="0 0 600 750" preserveAspectRatio="xMidYMid slice" className="h-full w-full" aria-hidden="true">
+//       <defs>
+//         <filter id="ch-cloud" x="0" y="0" width="100%" height="100%">
+//           <feTurbulence type="fractalNoise" baseFrequency="0.011 0.02" numOctaves="5" seed="11" />
+//           <feColorMatrix type="matrix" values="0 0 0 0 0.91  0 0 0 0 0.90  0 0 0 0 0.87  2.8 0 0 0 -1.05" />
+//         </filter>
+//         <filter id="ch-dust" x="0" y="0" width="100%" height="100%">
+//           <feTurbulence type="fractalNoise" baseFrequency="0.02 0.035" numOctaves="4" seed="3" />
+//           <feColorMatrix type="matrix" values="0 0 0 0 0.95  0 0 0 0 0.95  0 0 0 0 0.92  3.4 0 0 0 -1.7" />
+//         </filter>
+//         <linearGradient id="ch-bar" x1="0" y1="0" x2="0" y2="1">
+//           <stop offset="0" stopColor="#FFFFFF" />
+//           <stop offset="0.42" stopColor="#8D8D8D" />
+//           <stop offset="0.5" stopColor="#0C0C0C" />
+//           <stop offset="1" stopColor="#4A4A4A" />
+//         </linearGradient>
+//         <pattern id="ch-knurl" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+//           <line x1="0" y1="0" x2="0" y2="6" stroke="#0A0A0A" strokeWidth="1.4" opacity="0.55" />
+//         </pattern>
+//       </defs>
+//       <rect width="600" height="750" fill="#101010" />
+//       <rect width="600" height="750" filter="url(#ch-cloud)" />
+//       <rect x="-40" y="448" width="680" height="22" fill="url(#ch-bar)" />
+//       <rect x="-40" y="448" width="680" height="22" fill="url(#ch-knurl)" />
+//       <rect x="-40" y="440" width="60" height="38" fill="#0A0A0A" stroke="#E8E6DE" strokeWidth="1.5" />
+//       <rect width="600" height="750" filter="url(#ch-dust)" opacity="0.8" style={{ mixBlendMode: "screen" }} />
+//     </svg>
+//   );
+// }
 
 const DISCIPLINES = [
   {

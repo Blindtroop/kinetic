@@ -5,7 +5,7 @@ import { motion, useInView } from "motion/react";
 const D = { fontFamily: "'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif" };
 const M = { fontFamily: "'JetBrains Mono', ui-monospace, monospace" };
 const B = { fontFamily: "'Inter Tight', system-ui, sans-serif" };
-const LIME = "#B7FF00";
+// const LIME = "#B7FF00";
 const BONE = "#E8E6DE";
 const INK = "#0A0A0A";
 const EASE = [0.76, 0, 0.24, 1]; // hard in, hard out. mechanical.

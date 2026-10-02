@@ -1,16 +1,15 @@
 import { useRef } from "react";
-import Marquee from "../marquee/marquee";
 import { motion, useScroll, useTransform } from "motion/react";
 
 /* ───────────── tokens ───────────── */
 const D = { fontFamily: "'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif" };
 const M = { fontFamily: "'JetBrains Mono', ui-monospace, monospace" };
 const B = { fontFamily: "'Inter Tight', system-ui, sans-serif" };
-const LIME = "#B7FF00";
-const BONE = "#E8E6DE";
-const INK = "#0A0A0A";
+// const LIME = "#B7FF00";
+// const BONE = "#E8E6DE";
+// const INK = "#0A0A0A";
 const EASE = [0.76, 0, 0.24, 1]; // hard in, hard out. mechanical.
-const outline = (c = BONE, w = 2) => ({ WebkitTextStroke: `${w}px ${c}`, color: "transparent" });
+// const outline = (c = BONE, w = 2) => ({ WebkitTextStroke: `${w}px ${c}`, color: "transparent" });
 
 
 function Line({ children, delay = 0, className = "" }) {
