@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "motion/react";
+import ContactForm from "../contact/contact";
 
 /* ───────────── tokens ───────────── */
 const D = { fontFamily: "'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif" };
@@ -65,7 +66,7 @@ const Label = ({ children, className = "" }) => (
   </span>
 );
 
-function Btn({ children, href = "#", tone = "lime", className = "" }) {
+function Btn({ children, href = "#", tone = "lime", className = "" , onClick}) {
   const tones = {
     lime: "border-[#B7FF00] bg-[#B7FF00] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-[#B7FF00] hover:shadow-[6px_6px_0_#E8E6DE]",
     ink: "border-[#0A0A0A] bg-[#0A0A0A] text-[#B7FF00] hover:bg-[#B7FF00] hover:text-[#0A0A0A] hover:shadow-[6px_6px_0_#0A0A0A]",
@@ -73,6 +74,7 @@ function Btn({ children, href = "#", tone = "lime", className = "" }) {
   return (
     <a
       href={href}
+      onClick={onClick}
       style={M}
       className={`group inline-flex items-center gap-8 border px-6 py-4 text-[13px] font-medium uppercase tracking-[0.14em] transition-[transform,box-shadow,background-color,color] duration-100 hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0 active:translate-y-0 active:shadow-none ${tones[tone]} ${className}`}
     >
@@ -109,6 +111,7 @@ const TIERS = [
 
 
 function Membership() {
+   const [contactOpen, setContactOpen] = useState(false);
   return (
     <section id="membership" className="bg-[#181818] overflow-x-hidden pb-28 pt-28 md:pb-14 md:pt-24">
       <div className="px-6 md:px-10">
@@ -153,8 +156,11 @@ function Membership() {
       </div>
 
       <div className="mt-14 px-6 md:px-10">
-        <Btn href="#contact">Join Kinetic</Btn>
+        <Btn onClick={() => setContactOpen(true)}>Join Kinetic</Btn>
       </div>
+       {contactOpen && (
+  <ContactForm onClose={() => setContactOpen(false)} />
+)}
     </section>
   );
 }
