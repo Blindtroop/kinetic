@@ -85,10 +85,10 @@ function SectionHead({ n, label, dark = false }) {
 
 
 const STEPS = [
-  { w: "Push.", t: "Pattern before load. Every session opens with controlled range and clean mechanics.", dir: -1 },
-  { w: "Build.", t: "Progressive overload, written down. If it is not logged, it did not happen.", dir: 1 },
-  { w: "Adapt.", t: "Coaches adjust volume and intensity weekly from what the numbers actually say.", dir: -1 },
-  { w: "Repeat.", t: "Discipline is a schedule. The program runs whether you feel like it or not.", dir: 1 },
+  { w: "Push.", t: "Pattern before load. Every session begins with controlled range and clean mechanics, building a stronger movement pattern before intensity takes over.", dir: -1 },
+  { w: "Build.", t: "Progressive overload, written down. Record the work, measure the increase, and build from what came before. If it is not logged, it did not happen", dir: 1 },
+  { w: "Adapt.", t: "Coaches adjust volume and intensity weekly based on performance, recovery, and workload, keeping the program responsive to what your body and numbers are telling us.", dir: -1 },
+  { w: "Repeat.", t: "Discipline is a schedule. Follow the program whether motivation is high or low. Consistency turns repeated work into measurable progress.", dir: 1 },
 ];
 
 const STATS = [
@@ -110,12 +110,18 @@ function MethodRow({ s, i }) {
           <span key={k} style={k % 2 ? outline(INK, 2) : { color: INK }}>{s.w}</span>
         ))}
       </motion.div>
-      <span style={M} className="absolute left-6 top-4 z-10 bg-[#0A0A0A] px-2 py-1 text-[11px] uppercase tracking-[0.2em] text-[#B7FF00] md:left-10">
-        Step 0{i + 1}
-      </span>
-      <p style={B} className="absolute bottom-4 right-6 z-10 max-w-[230px] bg-[#E8E6DE] p-3 text-[13px] leading-snug md:bottom-8 md:right-10 md:max-w-[300px]">
-        {s.t}
-      </p>
+      <span
+  style={M}
+  className="absolute left-6 top-4 z-10 flex h-70 w-50 items-center justify-center bg-[#0A0A0A] px-2 py-1 text-center text-[26px] uppercase tracking-[0.2em] text-[#B7FF00] md:left-10"
+>
+  Step 0{i + 1}
+</span>
+      <p
+  style={B}
+  className="absolute w-120 h-30 left-1/2 top-1/2 z-10  -translate-x-1/2 -translate-y-1/2 bg-[#0A0A0A] p-3 text-center flex items-center justify-center text-[16px] font-extrabold leading-snug text-[#B7FF00]"
+>
+  {s.t}
+</p>
     </div>
   );
 }
