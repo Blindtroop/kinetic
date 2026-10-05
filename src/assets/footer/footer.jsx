@@ -1,143 +1,86 @@
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
-import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
-import { useState } from "react";
-
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  const [showForm, setShowForm] = useState(false);
- const links = [
-    { to: "/", label: "Home" },
-    { to: "/shop/mens", label: "Mens" },
-    { to: "/shop/womens", label: "Women" },
-    { to: "/shop", label: "Shop" },
-  ];
-
-  const socialLinks = [
-    { name: "Facebook", icon: <FaFacebook />, href: "#" },
-    { name: "Twitter", icon: <FaTwitter />, href: "#" },
-    { name: "LinkedIn", icon: <FaLinkedin />, href: "#" },
-    { name: "Instagram", icon: <FaInstagram />, href: "#" },
-  ];
-
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+ 
+const D = { fontFamily: "'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif" };
+const M = { fontFamily: "'JetBrains Mono', ui-monospace, monospace" };
+const B = { fontFamily: "'Inter Tight', system-ui, sans-serif" };
+const EASE = [0.76, 0, 0.24, 1];
+ 
+const LINKS = [
+    ["Home", "#"],
+  ["Instagram", "https://instagram.com"],
+  ["X", "#"],
+  ["FaceBook", "#"],
+  ["Terms", "#"],
+  ["Privacy", "#"],
+];
+ 
+function Footer() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end end"] });
+  const x = useTransform(scrollYProgress, [0, 1], ["10vw", "-1.5vw"]);
+ 
   return (
-    <footer className="bg-[#222222] text-white text-sm font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold font-sans">Navigation</h3>
-            <ul className="space-y-2">
-              {links.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.to}
-                    className="hover:text-gray-300 transition duration-300"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Contact Information</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <MdEmail className="mr-2" />
-                <a
-                  href=""
-                  className="hover:text-gray-300 transition duration-300"
-                >
-                  strydekicks@gmail.com
-                </a>
-              </li>
-              <li className="flex items-center">
-                <MdPhone className="mr-2" />
-                <a
-                  href="tel:"
-                  className="hover:text-gray-300 transition duration-300"
-                >
-                  +254 115 112760
-                </a>
-              </li>
-              <li className="flex items-center">
-                <MdLocationOn className="mr-2" />
-                <span>Moi Avenue, Nairobi CBD, Nairobi, Kenya</span>
-              </li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Social Media</h3>
-            <div className="flex space-x-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="hover:text-gray-300 transition duration-300"
-                  aria-label={`Visit our ${link.name} page`}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Get in Touch</h3>
-
-            <p>Have a question or want to work together?</p>
-
-            <button
-              onClick={() => setShowForm(true)}
-              className="bg-[#222222] border border-[#89E900] rounded-xl text-white font-bold py-2 px-4"
-            >
-              Contact Us
-            </button>
-          </div>
-
-          {showForm && (
-            <div className="fixed top-0 left-0 w-screen h-screen z-[9999] bg-[#222222] text-white overflow-y-auto slide-up">
-              {" "}
-              <button
-                onClick={() => setShowForm(false)}
-                className="fixed top-6 right-6 text-3xl text-white hover:text-[#89E900]"
-              >
-                ✕
-              </button>
-              <div className="min-h-screen flex items-center justify-center px-6">
-                <form className="w-full max-w-2xl space-y-6">
-                  <h1 className="text-5xl font-bold mb-10">Contact Us</h1>
-
-                  <input
-                    type="text"
-                    placeholder="Your name"
-                    className="w-full bg-transparent border-b border-gray-500 p-4 text-xl outline-none focus:border-[#89E900]"
-                  />
-
-                  <input
-                    type="email"
-                    placeholder="Your email"
-                    className="w-full bg-transparent border-b border-gray-500 p-4 text-xl outline-none focus:border-[#89E900]"
-                  />
-
-                  <textarea
-                    placeholder="Your message"
-                    rows="6"
-                    className="w-full bg-transparent border-b border-gray-500 p-4 text-xl outline-none focus:border-[#89E900] resize-none"
-                  />
-
-                  <button
-                    type="submit"
-                    className="bg-[#89E900] text-[#222222] font-bold px-8 py-4 rounded-xl"
-                  >
-                    Send Message
-                  </button>
-                </form>
-              </div>
-            </div>
-          )}
+    <footer ref={ref} className="relative overflow-hidden bg-[#0A0A0A] pt-10 md:">
+      {/* lime rule draws in from the left */}
+      <div className="px-6 md:px-10">
+        <motion.div
+          className="h-px w-full origin-left bg-[#B7FF00]"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: EASE }}
+        />
+      </div>
+ 
+      {/* tagline, links, top */}
+      <div
+        style={M}
+        className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4 px-6 pt-6 text-[11px] uppercase tracking-[0.2em] md:px-10"
+      >
+        <span className="text-[#E8E6DE]">Move. Load. Adapt. Repeat.</span>
+ 
+        <ul className="flex gap-6 text-[#777B78]">
+          {LINKS.map(([label, href]) => (
+            <li key={label}>
+              <a href={href} className="transition-colors duration-100 hover:text-[#B7FF00]">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+ 
+        <div className="flex items-center gap-6">
+          <span className="text-[#777B78]">© Kinetic 2026</span>
+          <a
+            href="#top"
+            className="border border-[#E8E6DE] px-3 py-2 text-[#E8E6DE] transition-colors duration-100 hover:bg-[#E8E6DE] hover:text-[#0A0A0A]"
+          >
+            ↑ Top
+          </a>
         </div>
       </div>
+ 
+      {/* oversized, cropped wordmark that slides in with scroll */}
+      <motion.div
+        aria-hidden="true"
+        style={{ ...D, x }}
+        className="pointer-events-none -mb-[6.5vw] mt-6 select-none whitespace-nowrap text-[35vw] font-black uppercase leading-[0.78] text-[#4949472c]"
+      >
+        Kinetic
+      </motion.div>
     </footer>
   );
-};
-
-export default Footer;
+}
+ 
+function KineticFooter() {
+  return (
+    <main style={B} className="bg-[#0A0A0A] text-[#E8E6DE] antialiased selection:bg-[#B7FF00] selection:text-[#0A0A0A]">
+      <div id="top" className="" />
+      <Footer />
+    </main>
+  );
+}
+ 
+export default KineticFooter;
+ 

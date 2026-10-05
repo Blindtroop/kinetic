@@ -91,12 +91,12 @@ const STEPS = [
   { w: "Repeat.", t: "Discipline is a schedule. Follow the program whether motivation is high or low. Consistency turns repeated work into measurable progress.", dir: 1 },
 ];
 
-const STATS = [
-  [24, "Athletes max per session"],
-  [5, "Coaches on ground"],
-  [7, "Days open"],
-  [100, "% Tailored Training"],
-];
+// const STATS = [
+//   [24, "Athletes max per session"],
+//   [5, "Coaches on ground"],
+//   [7, "Days open"],
+//   [100, "% Tailored Training"],
+// ];
 
 
 function MethodRow({ s, i }) {
@@ -110,18 +110,31 @@ function MethodRow({ s, i }) {
           <span key={k} style={k % 2 ? outline(INK, 2) : { color: INK }}>{s.w}</span>
         ))}
       </motion.div>
-      <span
+     <motion.span
   style={M}
+  initial={{ opacity: 0, x: -120 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.4 }}
+  transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
   className="absolute left-6 top-4 z-10 flex h-70 w-50 items-center justify-center bg-[#0A0A0A] px-2 py-1 text-center text-[26px] uppercase tracking-[0.2em] text-[#B7FF00] md:left-10"
 >
   Step 0{i + 1}
-</span>
-      <p
+</motion.span>
+
+<motion.p
   style={B}
-  className="absolute w-120 h-30 left-1/2 top-1/2 z-10  -translate-x-1/2 -translate-y-1/2 bg-[#0A0A0A] p-3 text-center flex items-center justify-center text-[16px] font-extrabold leading-snug text-[#B7FF00]"
+  initial={{ opacity: 0, x: 120 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true, amount: 0.4 }}
+  transition={{
+    duration: 0.8,
+    delay: 0.15,
+    ease: [0.76, 0, 0.24, 1],
+  }}
+  className="absolute left-1/2 top-1/2 z-10 flex h-30 w-120 -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[#0A0A0A] p-3 text-center text-[16px] font-extrabold leading-snug text-[#B7FF00]"
 >
   {s.t}
-</p>
+</motion.p>
     </div>
   );
 }
@@ -140,7 +153,7 @@ function Method() {
 
       {STEPS.map((s, i) => <MethodRow key={s.w} s={s} i={i} />)}
 
-      <div className="grid grid-cols-2 border-t border-[#0A0A0A] md:grid-cols-4">
+      {/* <div className="grid grid-cols-2 border-t border-[#0A0A0A] md:grid-cols-4">
         {STATS.map(([n, label], i) => (
           <div key={label} className={`border-[#0A0A0A] px-6 py-8 md:px-10 md:py-12 ${i < 3 ? "md:border-r" : ""} ${i % 2 === 0 ? "border-r md:border-r" : ""} ${i < 2 ? "border-b md:border-b-0" : ""}`}>
             <div style={D} className="font-black leading-[0.8] text-[22vw] md:text-[8vw]">
@@ -149,7 +162,7 @@ function Method() {
             <Label className="mt-4 block">{label}</Label>
           </div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 }

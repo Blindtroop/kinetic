@@ -6,11 +6,11 @@ import Hero from "./assets/hero/hero";
 import Arrivals from "./assets/training/training";
 import Flash from "./assets/programs/program";
 import Categories from "./assets/method/method";
-import Action from "./assets/cta/Action";
-import TrustedPartners from "./assets/partners/partners";
+import TrustedPartners from "./assets/team/team";
 import Shopping from "./assets/shopping/shopping";
 import CartModal from "./assets/cart/cart";
 // import ComingSoon from "./assets/404/404"
+import Membership from "./assets/membership/membership";
 import Footer from "./assets/footer/footer";
 
 import "./App.css";
@@ -24,8 +24,8 @@ function Home({ onAddToBag, onOpenCart, bagCount }) {
       <Arrivals onAddToBag={onAddToBag} />
       <Flash onAddToBag={onAddToBag} onOpenCart={onOpenCart} />
       <Categories />
-      <Action />
       <TrustedPartners />
+      <Membership />
       <Footer />
     </>
   );
