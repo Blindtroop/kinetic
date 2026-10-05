@@ -7,7 +7,7 @@ const B = { fontFamily: "'Inter Tight', system-ui, sans-serif" };
 const EASE = [0.76, 0, 0.24, 1];
  
 const LINKS = [
-    ["Home", "#"],
+    ["Home", "#top"],
   ["Instagram", "https://instagram.com"],
   ["X", "#"],
   ["FaceBook", "#"],

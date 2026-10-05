@@ -19,7 +19,7 @@ function Home({ onAddToBag, onOpenCart, bagCount }) {
   return (
     <>
       {/* <ComingSoon /> */}
-      <Navbar onOpenCart={onOpenCart} bagCount={bagCount} />
+      {/* <Navbar onOpenCart={onOpenCart} bagCount={bagCount} /> */}
       <Hero />
       <Arrivals onAddToBag={onAddToBag} />
       <Flash onAddToBag={onAddToBag} onOpenCart={onOpenCart} />

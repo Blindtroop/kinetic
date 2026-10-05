@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
+import { useState } from "react";
+import ContactForm from "../contact/contact";
 
 /* ───────────── tokens ───────────── */
 const D = { fontFamily: "'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif" };
@@ -10,7 +12,6 @@ const B = { fontFamily: "'Inter Tight', system-ui, sans-serif" };
 // const INK = "#0A0A0A";
 const EASE = [0.76, 0, 0.24, 1]; // hard in, hard out. mechanical.
 // const outline = (c = BONE, w = 2) => ({ WebkitTextStroke: `${w}px ${c}`, color: "transparent" });
-
 
 function Line({ children, delay = 0, className = "" }) {
   return (
@@ -34,23 +35,32 @@ const Label = ({ children, className = "" }) => (
   </span>
 );
 
-function Btn({ children, href = "#", tone = "lime", className = "" }) {
+function Btn({
+  children,
+  href = "#",
+  tone = "lime",
+  className = "",
+  onClick,
+}) {
   const tones = {
     lime: "border-[#B7FF00] bg-[#B7FF00] text-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-[#B7FF00] hover:shadow-[6px_6px_0_#E8E6DE]",
     ink: "border-[#0A0A0A] bg-[#0A0A0A] text-[#B7FF00] hover:bg-[#B7FF00] hover:text-[#0A0A0A] hover:shadow-[6px_6px_0_#0A0A0A]",
   };
+
   return (
     <a
       href={href}
+      onClick={onClick}
       style={M}
       className={`group inline-flex items-center gap-8 border px-6 py-4 text-[13px] font-medium uppercase tracking-[0.14em] transition-[transform,box-shadow,background-color,color] duration-100 hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0 active:translate-y-0 active:shadow-none ${tones[tone]} ${className}`}
     >
       {children}
-      <span className="transition-transform duration-100 group-hover:translate-x-2">→</span>
+      <span className="transition-transform duration-100 group-hover:translate-x-2">
+        →
+      </span>
     </a>
   );
 }
-
 
 function PlateArt({ className = "" }) {
   const streaks = [
@@ -114,27 +124,36 @@ function Nav() {
   return (
     <nav
       style={{ ...M, paddingTop: "calc(0.9rem + env(safe-area-inset-top, 0px))" }}
-      className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-[#E8E6DE]/15 bg-[#0A0A0A]/95 px-6 pb-3 text-[11px] uppercase tracking-[0.2em] text-[#E8E6DE] md:px-10"
+      className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-[#E8E6DE]/15 bg-[#0A0A0A]/95 px-6 pb-3 text-[20px] uppercase tracking-[0.2em] text-[#E8E6DE] md:px-10"
     >
       <a href="#top" style={D} className="text-3xl font-black leading-none tracking-normal">K/</a>
-      <ul className="hidden items-center gap-6 md:flex">
-        {NAV.map(([label, id], i) => (
-          <li key={id}>
-            <a href={`#${id}`} className="group flex gap-2">
-              <span className="text-[#777B78] transition-colors duration-100 group-hover:text-[#B7FF00]">0{i + 1}</span>
-              <span className="hidden w-0 overflow-hidden whitespace-nowrap transition-[width] duration-150 group-hover:w-24 lg:inline-block">{label}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-      <a href="#membership" className="border border-[#E8E6DE] px-3 py-2 transition-colors duration-100 hover:bg-[#E8E6DE] hover:text-[#0A0A0A]">
-        Join →
+     <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 md:flex">
+  {NAV.map(([label, id], i) => (
+    <li key={id}>
+      <a
+        href={`#${id}`}
+        className="group flex items-center gap-2 whitespace-nowrap"
+      >
+        <span className="text-[#777B78] transition-colors duration-100 group-hover:text-[#B7FF00]">
+          0{i + 1}
+        </span>
+
+        <span className="w-0 overflow-hidden whitespace-nowrap transition-all duration-200 group-hover:w-auto">
+          {label}
+        </span>
       </a>
+    </li>
+  ))}
+</ul>
+      {/* <a href="#membership" className="border border-[#E8E6DE] px-3 py-2 transition-colors duration-100 hover:bg-[#E8E6DE] hover:text-[#0A0A0A]">
+        Join →
+      </a> */}
     </nav>
   );
 }
 
 function Hero() {
+    const [contactOpen, setContactOpen] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const wordX = useTransform(scrollYProgress, [0, 1], ["0vw", "-30vw"]);
@@ -169,7 +188,7 @@ function Hero() {
           transition={{ duration: 0.5, ease: EASE, delay: 0.7 }}
           className="mt-8"
         >
-          <Btn href="#membership">Join</Btn>
+          <Btn onClick={() => setContactOpen(true)}>Join</Btn>
         </motion.div>
       </div>
 
@@ -188,6 +207,9 @@ function Hero() {
         <span className="h-2 w-2 bg-[#B7FF00]" />
         <Label className="text-[#E8E6DE] mix-blend-difference">Scroll</Label>
       </div>
+      {contactOpen && (
+  <ContactForm onClose={() => setContactOpen(false)} />
+)}
     </section>
   );
 }
